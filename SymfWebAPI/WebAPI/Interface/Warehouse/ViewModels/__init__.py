@@ -235,8 +235,8 @@ class WarehouseDocumentPosition(BaseModel):
     EnteredUnitOfMeasurement: str
     PriceValue: Decimal
     NetValue: Decimal
-    Reservations: List["WarehouseDocumentPositionReservation"]
-    Deliveries: List["WarehouseDocumentPositionDelivery"]
+    Reservations: Optional[List["WarehouseDocumentPositionReservation"]]
+    Deliveries: Optional[List["WarehouseDocumentPositionDelivery"]]
 
 class WarehouseDocumentPositionDelivery(BaseModel):
     Id: int

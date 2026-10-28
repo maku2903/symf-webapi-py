@@ -50,7 +50,7 @@ def Get(api: object, orderId: object = _UNSET, orderNumber: object = _UNSET, buf
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'Get'
         exact_match_name = 'Get'
-    if provided_names == {'orderNumber', 'buffer'}:
+    if provided_names == {'buffer', 'orderNumber'}:
         if exact_match_name is not None:
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'GetByBufferOrderNumber'
@@ -61,7 +61,7 @@ def Get(api: object, orderId: object = _UNSET, orderNumber: object = _UNSET, buf
         candidates: list[tuple[int, int, str]] = []
         if {'orderId'}.issubset(provided_names) and provided_names.issubset({'orderId'}):
             candidates.append((1, -1, 'Get'))
-        if {'orderNumber', 'buffer'}.issubset(provided_names) and provided_names.issubset({'orderNumber', 'buffer'}):
+        if {'buffer', 'orderNumber'}.issubset(provided_names) and provided_names.issubset({'buffer', 'orderNumber'}):
             candidates.append((2, -2, 'GetByBufferOrderNumber'))
         if not candidates:
             raise TypeError("Get(): no matching overload for provided arguments")

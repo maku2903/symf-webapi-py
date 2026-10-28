@@ -159,7 +159,7 @@ def GetByDocument(api: object, documentId: object = _UNSET, documentNumber: obje
             raise TypeError("GetByDocument(): ambiguous overload for provided arguments")
         exact_match = 'GetByDocument'
         exact_match_name = 'GetByDocument'
-    if provided_names == {'documentNumber', 'buffer'}:
+    if provided_names == {'buffer', 'documentNumber'}:
         if exact_match_name is not None:
             raise TypeError("GetByDocument(): ambiguous overload for provided arguments")
         exact_match = 'GetByDocumentByBufferDocumentNumber'
@@ -170,7 +170,7 @@ def GetByDocument(api: object, documentId: object = _UNSET, documentNumber: obje
         candidates: list[tuple[int, int, str]] = []
         if {'documentId'}.issubset(provided_names) and provided_names.issubset({'documentId'}):
             candidates.append((1, -1, 'GetByDocument'))
-        if {'documentNumber', 'buffer'}.issubset(provided_names) and provided_names.issubset({'documentNumber', 'buffer'}):
+        if {'buffer', 'documentNumber'}.issubset(provided_names) and provided_names.issubset({'buffer', 'documentNumber'}):
             candidates.append((2, -2, 'GetByDocumentByBufferDocumentNumber'))
         if not candidates:
             raise TypeError("GetByDocument(): no matching overload for provided arguments")

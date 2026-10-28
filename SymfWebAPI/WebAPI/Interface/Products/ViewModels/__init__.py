@@ -149,8 +149,8 @@ class ProductListElement(BaseModel):
     Code: str
     Name: str
     Active: bool
-    Unit: str
-    DefaultUnit: str
+    Unit: Optional[str]
+    DefaultUnit: Optional[str]
     VatRate: Optional[str]
     Type: Optional["enumProductType"]
     Barcode: str
@@ -164,8 +164,8 @@ class ProductListElementWithDimensions(BaseModel):
     Code: str
     Name: str
     Active: bool
-    Unit: str
-    DefaultUnit: str
+    Unit: Optional[str]
+    DefaultUnit: Optional[str]
     VatRate: Optional[str]
     Type: Optional["enumProductType"]
     Barcode: str
@@ -179,8 +179,8 @@ class ProductListElementWithSalePrices(BaseModel):
     Code: str
     Name: str
     Active: bool
-    Unit: str
-    DefaultUnit: str
+    Unit: Optional[str]
+    DefaultUnit: Optional[str]
     VatRate: Optional[str]
     Type: Optional["enumProductType"]
     Barcode: str

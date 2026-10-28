@@ -79,12 +79,12 @@ def AddNew(api: object, issue: object = _UNSET, document: object = _UNSET, corre
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'issue', 'document'}:
+    if provided_names == {'document', 'issue'}:
         if exact_match_name is not None:
             raise TypeError("AddNew(): ambiguous overload for provided arguments")
         exact_match = 'AddNew'
         exact_match_name = 'AddNew'
-    if provided_names == {'issue', 'correction'}:
+    if provided_names == {'correction', 'issue'}:
         if exact_match_name is not None:
             raise TypeError("AddNew(): ambiguous overload for provided arguments")
         exact_match = 'AddNewByCorrectionIssue'
@@ -93,9 +93,9 @@ def AddNew(api: object, issue: object = _UNSET, document: object = _UNSET, corre
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'issue', 'document'}.issubset(provided_names) and provided_names.issubset({'issue', 'document'}):
+        if {'document', 'issue'}.issubset(provided_names) and provided_names.issubset({'document', 'issue'}):
             candidates.append((2, -2, 'AddNew'))
-        if {'issue', 'correction'}.issubset(provided_names) and provided_names.issubset({'issue', 'correction'}):
+        if {'correction', 'issue'}.issubset(provided_names) and provided_names.issubset({'correction', 'issue'}):
             candidates.append((2, -2, 'AddNewByCorrectionIssue'))
         if not candidates:
             raise TypeError("AddNew(): no matching overload for provided arguments")
@@ -282,7 +282,7 @@ def IssueWZCorrection(api: object, documentId: object = _UNSET, issue: object = 
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'issue', 'documentId'}:
+    if provided_names == {'documentId', 'issue'}:
         if exact_match_name is not None:
             raise TypeError("IssueWZCorrection(): ambiguous overload for provided arguments")
         exact_match = 'IssueWZCorrection'
@@ -296,7 +296,7 @@ def IssueWZCorrection(api: object, documentId: object = _UNSET, issue: object = 
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'issue', 'documentId'}.issubset(provided_names) and provided_names.issubset({'issue', 'documentId'}):
+        if {'documentId', 'issue'}.issubset(provided_names) and provided_names.issubset({'documentId', 'issue'}):
             candidates.append((2, -2, 'IssueWZCorrection'))
         if {'documentNumber', 'issue'}.issubset(provided_names) and provided_names.issubset({'documentNumber', 'issue'}):
             candidates.append((2, -2, 'IssueWZCorrectionByDocumentNumberIssue'))

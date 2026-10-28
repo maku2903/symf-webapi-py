@@ -89,7 +89,7 @@ def Get(api: object, orderId: object = _UNSET, orderNumber: object = _UNSET, buf
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'Get'
         exact_match_name = 'Get'
-    if provided_names == {'orderNumber', 'buffer'}:
+    if provided_names == {'buffer', 'orderNumber'}:
         if exact_match_name is not None:
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'GetByBufferOrderNumber'
@@ -100,7 +100,7 @@ def Get(api: object, orderId: object = _UNSET, orderNumber: object = _UNSET, buf
         candidates: list[tuple[int, int, str]] = []
         if {'orderId'}.issubset(provided_names) and provided_names.issubset({'orderId'}):
             candidates.append((1, -1, 'Get'))
-        if {'orderNumber', 'buffer'}.issubset(provided_names) and provided_names.issubset({'orderNumber', 'buffer'}):
+        if {'buffer', 'orderNumber'}.issubset(provided_names) and provided_names.issubset({'buffer', 'orderNumber'}):
             candidates.append((2, -2, 'GetByBufferOrderNumber'))
         if not candidates:
             raise TypeError("Get(): no matching overload for provided arguments")
@@ -185,22 +185,22 @@ def Update(api: object, orderId: object = _UNSET, orderDimension: object = _UNSE
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'orderId', 'orderDimension'}:
+    if provided_names == {'orderDimension', 'orderId'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'Update'
         exact_match_name = 'Update'
-    if provided_names == {'orderNumber', 'buffer', 'orderDimension'}:
+    if provided_names == {'buffer', 'orderDimension', 'orderNumber'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByBufferOrderDimensionOrderNumber'
         exact_match_name = 'UpdateByBufferOrderDimensionOrderNumber'
-    if provided_names == {'orderId', 'orderDimensions'}:
+    if provided_names == {'orderDimensions', 'orderId'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByOrderDimensionsOrderId'
         exact_match_name = 'UpdateByOrderDimensionsOrderId'
-    if provided_names == {'orderNumber', 'buffer', 'orderDimensions'}:
+    if provided_names == {'buffer', 'orderDimensions', 'orderNumber'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByBufferOrderDimensionsOrderNumber'
@@ -209,13 +209,13 @@ def Update(api: object, orderId: object = _UNSET, orderDimension: object = _UNSE
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'orderId', 'orderDimension'}.issubset(provided_names) and provided_names.issubset({'orderId', 'orderDimension'}):
+        if {'orderDimension', 'orderId'}.issubset(provided_names) and provided_names.issubset({'orderDimension', 'orderId'}):
             candidates.append((2, -2, 'Update'))
-        if {'orderNumber', 'buffer', 'orderDimension'}.issubset(provided_names) and provided_names.issubset({'orderNumber', 'buffer', 'orderDimension'}):
+        if {'buffer', 'orderDimension', 'orderNumber'}.issubset(provided_names) and provided_names.issubset({'buffer', 'orderDimension', 'orderNumber'}):
             candidates.append((3, -3, 'UpdateByBufferOrderDimensionOrderNumber'))
-        if {'orderId', 'orderDimensions'}.issubset(provided_names) and provided_names.issubset({'orderId', 'orderDimensions'}):
+        if {'orderDimensions', 'orderId'}.issubset(provided_names) and provided_names.issubset({'orderDimensions', 'orderId'}):
             candidates.append((2, -2, 'UpdateByOrderDimensionsOrderId'))
-        if {'orderNumber', 'buffer', 'orderDimensions'}.issubset(provided_names) and provided_names.issubset({'orderNumber', 'buffer', 'orderDimensions'}):
+        if {'buffer', 'orderDimensions', 'orderNumber'}.issubset(provided_names) and provided_names.issubset({'buffer', 'orderDimensions', 'orderNumber'}):
             candidates.append((3, -3, 'UpdateByBufferOrderDimensionsOrderNumber'))
         if not candidates:
             raise TypeError("Update(): no matching overload for provided arguments")
@@ -260,12 +260,12 @@ def UpdatePosition(api: object, positionId: object = _UNSET, positionDimension: 
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'positionId', 'positionDimension'}:
+    if provided_names == {'positionDimension', 'positionId'}:
         if exact_match_name is not None:
             raise TypeError("UpdatePosition(): ambiguous overload for provided arguments")
         exact_match = 'UpdatePosition'
         exact_match_name = 'UpdatePosition'
-    if provided_names == {'positionId', 'positionDimensions'}:
+    if provided_names == {'positionDimensions', 'positionId'}:
         if exact_match_name is not None:
             raise TypeError("UpdatePosition(): ambiguous overload for provided arguments")
         exact_match = 'UpdatePositionByPositionDimensionsPositionId'
@@ -279,9 +279,9 @@ def UpdatePosition(api: object, positionId: object = _UNSET, positionDimension: 
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'positionId', 'positionDimension'}.issubset(provided_names) and provided_names.issubset({'positionId', 'positionDimension'}):
+        if {'positionDimension', 'positionId'}.issubset(provided_names) and provided_names.issubset({'positionDimension', 'positionId'}):
             candidates.append((2, -2, 'UpdatePosition'))
-        if {'positionId', 'positionDimensions'}.issubset(provided_names) and provided_names.issubset({'positionId', 'positionDimensions'}):
+        if {'positionDimensions', 'positionId'}.issubset(provided_names) and provided_names.issubset({'positionDimensions', 'positionId'}):
             candidates.append((2, -2, 'UpdatePositionByPositionDimensionsPositionId'))
         if {'positionDimension'}.issubset(provided_names) and provided_names.issubset({'positionDimension'}):
             candidates.append((1, -1, 'UpdatePositionByPositionDimension'))
@@ -326,7 +326,7 @@ def GetAspects(api: object, orderId: object = _UNSET, orderNumber: object = _UNS
             raise TypeError("GetAspects(): ambiguous overload for provided arguments")
         exact_match = 'GetAspects'
         exact_match_name = 'GetAspects'
-    if provided_names == {'orderNumber', 'buffer'}:
+    if provided_names == {'buffer', 'orderNumber'}:
         if exact_match_name is not None:
             raise TypeError("GetAspects(): ambiguous overload for provided arguments")
         exact_match = 'GetAspectsByBufferOrderNumber'
@@ -337,7 +337,7 @@ def GetAspects(api: object, orderId: object = _UNSET, orderNumber: object = _UNS
         candidates: list[tuple[int, int, str]] = []
         if {'orderId'}.issubset(provided_names) and provided_names.issubset({'orderId'}):
             candidates.append((1, -1, 'GetAspects'))
-        if {'orderNumber', 'buffer'}.issubset(provided_names) and provided_names.issubset({'orderNumber', 'buffer'}):
+        if {'buffer', 'orderNumber'}.issubset(provided_names) and provided_names.issubset({'buffer', 'orderNumber'}):
             candidates.append((2, -2, 'GetAspectsByBufferOrderNumber'))
         if not candidates:
             raise TypeError("GetAspects(): no matching overload for provided arguments")

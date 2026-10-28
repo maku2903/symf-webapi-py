@@ -41,7 +41,7 @@ def GetInWarehouse(api: object, warehouseId: object = _UNSET, productId: object 
             raise TypeError("GetInWarehouse(): ambiguous overload for provided arguments")
         exact_match = 'GetInWarehouse'
         exact_match_name = 'GetInWarehouse'
-    if provided_names == {'warehouseCode', 'productCode'}:
+    if provided_names == {'productCode', 'warehouseCode'}:
         if exact_match_name is not None:
             raise TypeError("GetInWarehouse(): ambiguous overload for provided arguments")
         exact_match = 'GetInWarehouseByProductCodeWarehouseCode'
@@ -52,7 +52,7 @@ def GetInWarehouse(api: object, warehouseId: object = _UNSET, productId: object 
         candidates: list[tuple[int, int, str]] = []
         if {'productId', 'warehouseId'}.issubset(provided_names) and provided_names.issubset({'productId', 'warehouseId'}):
             candidates.append((2, -2, 'GetInWarehouse'))
-        if {'warehouseCode', 'productCode'}.issubset(provided_names) and provided_names.issubset({'warehouseCode', 'productCode'}):
+        if {'productCode', 'warehouseCode'}.issubset(provided_names) and provided_names.issubset({'productCode', 'warehouseCode'}):
             candidates.append((2, -2, 'GetInWarehouseByProductCodeWarehouseCode'))
         if not candidates:
             raise TypeError("GetInWarehouse(): no matching overload for provided arguments")

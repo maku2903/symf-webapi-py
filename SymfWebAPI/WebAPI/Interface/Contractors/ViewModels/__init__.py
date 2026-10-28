@@ -94,13 +94,13 @@ class ContractorListElementWithDimensions(BaseModel):
     Name: str
     Type: Optional["enumContractorType"]
     NIP: Optional[str]
-    Pesel: str
+    Pesel: Optional[str]
     Active: bool
     PriceType: Optional["enumSalePriceType"]
     PriceKind: Optional["enumPriceKind"]
     PaymentFormOid: int
     PaymentRegistryOid: int
-    Place: str
+    Place: Optional[str]
     PostCode: Optional[str]
 
 class Contractors_ViewModels_Contractor(BaseModel):
@@ -189,13 +189,13 @@ class Contractors_ViewModels_ContractorListElement(BaseModel):
     Name: str
     Type: Optional["enumContractorType"]
     NIP: Optional[str]
-    Pesel: str
+    Pesel: Optional[str]
     Active: bool
     PriceType: Optional["enumSalePriceType"]
     PriceKind: Optional["enumPriceKind"]
     PaymentFormOid: int
     PaymentRegistryOid: int
-    Place: str
+    Place: Optional[str]
     PostCode: Optional[str]
 ContractorListElement = Contractors_ViewModels_ContractorListElement
 

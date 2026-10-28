@@ -1,9 +1,35 @@
 from __future__ import annotations
 
+import pytest
 from pydantic import TypeAdapter
 
 from SymfWebAPI import WebAPI
 from SymfWebAPI.WebAPI.Interface.Enums import enumDocumentCharacter
+
+
+@pytest.mark.parametrize("model_name", [
+    "ProductListElement", "ProductListElementWithDimensions", "ProductListElementWithSalePrices",
+])
+@pytest.mark.parametrize("field_name", ["Unit", "DefaultUnit"])
+def test_product_list_units_accept_none(model_name, field_name):
+    model = getattr(WebAPI.Interface.Products.ViewModels, model_name)
+    assert TypeAdapter(model.model_fields[field_name].annotation).validate_python(None) is None
+
+
+@pytest.mark.parametrize("model_name", ["ContractorListElement", "ContractorListElementWithDimensions"])
+@pytest.mark.parametrize("field_name", ["Pesel", "Place"])
+def test_contractor_list_fields_accept_none(model_name, field_name):
+    model = getattr(WebAPI.Interface.Contractors.ViewModels, model_name)
+    assert TypeAdapter(model.model_fields[field_name].annotation).validate_python(None) is None
+
+
+@pytest.mark.parametrize("field_name", ["Reservations", "Deliveries"])
+def test_warehouse_position_collections_accept_none_and_empty_list(field_name):
+    model = WebAPI.Interface.Warehouse.ViewModels.WarehouseDocumentPosition
+    model.model_rebuild()
+    adapter = TypeAdapter(model.model_fields[field_name].annotation)
+    assert adapter.validate_python(None) is None
+    assert adapter.validate_python([]) == []
 
 
 def test_product_vat_rate_accepts_none() -> None:

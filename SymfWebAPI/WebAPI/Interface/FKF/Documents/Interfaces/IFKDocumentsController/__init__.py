@@ -151,12 +151,12 @@ def GetFromBuffer(api: object, yearId: object = _UNSET, dateFrom: object = _UNSE
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'dateFrom', 'yearId', 'dateTo'}:
+    if provided_names == {'dateFrom', 'dateTo', 'yearId'}:
         if exact_match_name is not None:
             raise TypeError("GetFromBuffer(): ambiguous overload for provided arguments")
         exact_match = 'GetFromBuffer'
         exact_match_name = 'GetFromBuffer'
-    if provided_names == {'dateFrom', 'yearId', 'dateTo', 'contractorPosition'}:
+    if provided_names == {'contractorPosition', 'dateFrom', 'dateTo', 'yearId'}:
         if exact_match_name is not None:
             raise TypeError("GetFromBuffer(): ambiguous overload for provided arguments")
         exact_match = 'GetFromBufferByContractorPositionDateFromDateToYearId'
@@ -165,9 +165,9 @@ def GetFromBuffer(api: object, yearId: object = _UNSET, dateFrom: object = _UNSE
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'yearId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'yearId', 'dateTo'}):
+        if {'yearId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'dateTo', 'yearId'}):
             candidates.append((1, -3, 'GetFromBuffer'))
-        if {'yearId', 'contractorPosition'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'yearId', 'dateTo', 'contractorPosition'}):
+        if {'contractorPosition', 'yearId'}.issubset(provided_names) and provided_names.issubset({'contractorPosition', 'dateFrom', 'dateTo', 'yearId'}):
             candidates.append((2, -4, 'GetFromBufferByContractorPositionDateFromDateToYearId'))
         if not candidates:
             raise TypeError("GetFromBuffer(): no matching overload for provided arguments")
@@ -203,12 +203,12 @@ def GetFromAccountingBooks(api: object, yearId: object = _UNSET, dateFrom: objec
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'dateFrom', 'yearId', 'dateTo'}:
+    if provided_names == {'dateFrom', 'dateTo', 'yearId'}:
         if exact_match_name is not None:
             raise TypeError("GetFromAccountingBooks(): ambiguous overload for provided arguments")
         exact_match = 'GetFromAccountingBooks'
         exact_match_name = 'GetFromAccountingBooks'
-    if provided_names == {'dateFrom', 'yearId', 'dateTo', 'contractorPosition'}:
+    if provided_names == {'contractorPosition', 'dateFrom', 'dateTo', 'yearId'}:
         if exact_match_name is not None:
             raise TypeError("GetFromAccountingBooks(): ambiguous overload for provided arguments")
         exact_match = 'GetFromAccountingBooksByContractorPositionDateFromDateToYearId'
@@ -217,9 +217,9 @@ def GetFromAccountingBooks(api: object, yearId: object = _UNSET, dateFrom: objec
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'yearId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'yearId', 'dateTo'}):
+        if {'yearId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'dateTo', 'yearId'}):
             candidates.append((1, -3, 'GetFromAccountingBooks'))
-        if {'yearId', 'contractorPosition'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'yearId', 'dateTo', 'contractorPosition'}):
+        if {'contractorPosition', 'yearId'}.issubset(provided_names) and provided_names.issubset({'contractorPosition', 'dateFrom', 'dateTo', 'yearId'}):
             candidates.append((2, -4, 'GetFromAccountingBooksByContractorPositionDateFromDateToYearId'))
         if not candidates:
             raise TypeError("GetFromAccountingBooks(): no matching overload for provided arguments")
@@ -255,12 +255,12 @@ def GetFromSchemes(api: object, yearId: object = _UNSET, dateFrom: object = _UNS
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'dateFrom', 'yearId', 'dateTo'}:
+    if provided_names == {'dateFrom', 'dateTo', 'yearId'}:
         if exact_match_name is not None:
             raise TypeError("GetFromSchemes(): ambiguous overload for provided arguments")
         exact_match = 'GetFromSchemes'
         exact_match_name = 'GetFromSchemes'
-    if provided_names == {'dateFrom', 'yearId', 'dateTo', 'contractorPosition'}:
+    if provided_names == {'contractorPosition', 'dateFrom', 'dateTo', 'yearId'}:
         if exact_match_name is not None:
             raise TypeError("GetFromSchemes(): ambiguous overload for provided arguments")
         exact_match = 'GetFromSchemesByContractorPositionDateFromDateToYearId'
@@ -269,9 +269,9 @@ def GetFromSchemes(api: object, yearId: object = _UNSET, dateFrom: object = _UNS
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'yearId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'yearId', 'dateTo'}):
+        if {'yearId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'dateTo', 'yearId'}):
             candidates.append((1, -3, 'GetFromSchemes'))
-        if {'yearId', 'contractorPosition'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'yearId', 'dateTo', 'contractorPosition'}):
+        if {'contractorPosition', 'yearId'}.issubset(provided_names) and provided_names.issubset({'contractorPosition', 'dateFrom', 'dateTo', 'yearId'}):
             candidates.append((2, -4, 'GetFromSchemesByContractorPositionDateFromDateToYearId'))
         if not candidates:
             raise TypeError("GetFromSchemes(): no matching overload for provided arguments")

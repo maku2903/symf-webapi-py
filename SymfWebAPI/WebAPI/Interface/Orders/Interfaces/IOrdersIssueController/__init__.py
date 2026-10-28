@@ -132,12 +132,12 @@ def IssueWZ(api: object, orderId: object = _UNSET, inBuffer: object = _UNSET, or
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'orderId', 'inBuffer'}:
+    if provided_names == {'inBuffer', 'orderId'}:
         if exact_match_name is not None:
             raise TypeError("IssueWZ(): ambiguous overload for provided arguments")
         exact_match = 'IssueWZ'
         exact_match_name = 'IssueWZ'
-    if provided_names == {'orderNumber', 'inBuffer'}:
+    if provided_names == {'inBuffer', 'orderNumber'}:
         if exact_match_name is not None:
             raise TypeError("IssueWZ(): ambiguous overload for provided arguments")
         exact_match = 'IssueWZByInBufferOrderNumber'
@@ -146,9 +146,9 @@ def IssueWZ(api: object, orderId: object = _UNSET, inBuffer: object = _UNSET, or
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'orderId'}.issubset(provided_names) and provided_names.issubset({'orderId', 'inBuffer'}):
+        if {'orderId'}.issubset(provided_names) and provided_names.issubset({'inBuffer', 'orderId'}):
             candidates.append((1, -2, 'IssueWZ'))
-        if {'orderNumber'}.issubset(provided_names) and provided_names.issubset({'orderNumber', 'inBuffer'}):
+        if {'orderNumber'}.issubset(provided_names) and provided_names.issubset({'inBuffer', 'orderNumber'}):
             candidates.append((1, -2, 'IssueWZByInBufferOrderNumber'))
         if not candidates:
             raise TypeError("IssueWZ(): no matching overload for provided arguments")

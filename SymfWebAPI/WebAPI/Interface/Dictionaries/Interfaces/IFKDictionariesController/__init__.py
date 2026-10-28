@@ -136,7 +136,7 @@ def SetElementPosition(api: object, id: object = _UNSET, position: object = _UNS
             raise TypeError("SetElementPosition(): ambiguous overload for provided arguments")
         exact_match = 'SetElementPosition'
         exact_match_name = 'SetElementPosition'
-    if provided_names == {'position', 'id'}:
+    if provided_names == {'id', 'position'}:
         if exact_match_name is not None:
             raise TypeError("SetElementPosition(): ambiguous overload for provided arguments")
         exact_match = 'SetElementPositionByIdPosition'
@@ -147,7 +147,7 @@ def SetElementPosition(api: object, id: object = _UNSET, position: object = _UNS
         candidates: list[tuple[int, int, str]] = []
         if {'id'}.issubset(provided_names) and provided_names.issubset({'id'}):
             candidates.append((1, -1, 'SetElementPosition'))
-        if {'position', 'id'}.issubset(provided_names) and provided_names.issubset({'position', 'id'}):
+        if {'id', 'position'}.issubset(provided_names) and provided_names.issubset({'id', 'position'}):
             candidates.append((2, -2, 'SetElementPositionByIdPosition'))
         if not candidates:
             raise TypeError("SetElementPosition(): no matching overload for provided arguments")
@@ -186,7 +186,7 @@ def SetContractorPosition(api: object, id: object = _UNSET, position: object = _
             raise TypeError("SetContractorPosition(): ambiguous overload for provided arguments")
         exact_match = 'SetContractorPosition'
         exact_match_name = 'SetContractorPosition'
-    if provided_names == {'position', 'id'}:
+    if provided_names == {'id', 'position'}:
         if exact_match_name is not None:
             raise TypeError("SetContractorPosition(): ambiguous overload for provided arguments")
         exact_match = 'SetContractorPositionByIdPosition'
@@ -197,7 +197,7 @@ def SetContractorPosition(api: object, id: object = _UNSET, position: object = _
         candidates: list[tuple[int, int, str]] = []
         if {'id'}.issubset(provided_names) and provided_names.issubset({'id'}):
             candidates.append((1, -1, 'SetContractorPosition'))
-        if {'position', 'id'}.issubset(provided_names) and provided_names.issubset({'position', 'id'}):
+        if {'id', 'position'}.issubset(provided_names) and provided_names.issubset({'id', 'position'}):
             candidates.append((2, -2, 'SetContractorPositionByIdPosition'))
         if not candidates:
             raise TypeError("SetContractorPosition(): no matching overload for provided arguments")

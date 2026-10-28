@@ -50,7 +50,7 @@ def Get(api: object, documentId: object = _UNSET, documentNumber: object = _UNSE
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'Get'
         exact_match_name = 'Get'
-    if provided_names == {'documentNumber', 'buffer'}:
+    if provided_names == {'buffer', 'documentNumber'}:
         if exact_match_name is not None:
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'GetByBufferDocumentNumber'
@@ -61,7 +61,7 @@ def Get(api: object, documentId: object = _UNSET, documentNumber: object = _UNSE
         candidates: list[tuple[int, int, str]] = []
         if {'documentId'}.issubset(provided_names) and provided_names.issubset({'documentId'}):
             candidates.append((1, -1, 'Get'))
-        if {'documentNumber', 'buffer'}.issubset(provided_names) and provided_names.issubset({'documentNumber', 'buffer'}):
+        if {'buffer', 'documentNumber'}.issubset(provided_names) and provided_names.issubset({'buffer', 'documentNumber'}):
             candidates.append((2, -2, 'GetByBufferDocumentNumber'))
         if not candidates:
             raise TypeError("Get(): no matching overload for provided arguments")

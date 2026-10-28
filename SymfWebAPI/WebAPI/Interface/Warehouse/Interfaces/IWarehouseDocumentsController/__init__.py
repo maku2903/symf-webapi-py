@@ -257,12 +257,12 @@ def GetListByWarehouse(api: object, warehouseId: object = _UNSET, dateFrom: obje
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'dateFrom', 'warehouseId', 'dateTo'}:
+    if provided_names == {'dateFrom', 'dateTo', 'warehouseId'}:
         if exact_match_name is not None:
             raise TypeError("GetListByWarehouse(): ambiguous overload for provided arguments")
         exact_match = 'GetListByWarehouse'
         exact_match_name = 'GetListByWarehouse'
-    if provided_names == {'warehouseCode', 'dateFrom', 'dateTo'}:
+    if provided_names == {'dateFrom', 'dateTo', 'warehouseCode'}:
         if exact_match_name is not None:
             raise TypeError("GetListByWarehouse(): ambiguous overload for provided arguments")
         exact_match = 'GetListByWarehouseByDateFromDateToWarehouseCode'
@@ -271,9 +271,9 @@ def GetListByWarehouse(api: object, warehouseId: object = _UNSET, dateFrom: obje
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'warehouseId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'warehouseId', 'dateTo'}):
+        if {'warehouseId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'dateTo', 'warehouseId'}):
             candidates.append((1, -3, 'GetListByWarehouse'))
-        if {'warehouseCode'}.issubset(provided_names) and provided_names.issubset({'warehouseCode', 'dateFrom', 'dateTo'}):
+        if {'warehouseCode'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'dateTo', 'warehouseCode'}):
             candidates.append((1, -3, 'GetListByWarehouseByDateFromDateToWarehouseCode'))
         if not candidates:
             raise TypeError("GetListByWarehouse(): no matching overload for provided arguments")
@@ -321,7 +321,7 @@ def GetFV(api: object, documentId: object = _UNSET, documentNumber: object = _UN
             raise TypeError("GetFV(): ambiguous overload for provided arguments")
         exact_match = 'GetFV'
         exact_match_name = 'GetFV'
-    if provided_names == {'documentNumber', 'buffer'}:
+    if provided_names == {'buffer', 'documentNumber'}:
         if exact_match_name is not None:
             raise TypeError("GetFV(): ambiguous overload for provided arguments")
         exact_match = 'GetFVByBufferDocumentNumber'
@@ -332,7 +332,7 @@ def GetFV(api: object, documentId: object = _UNSET, documentNumber: object = _UN
         candidates: list[tuple[int, int, str]] = []
         if {'documentId'}.issubset(provided_names) and provided_names.issubset({'documentId'}):
             candidates.append((1, -1, 'GetFV'))
-        if {'documentNumber', 'buffer'}.issubset(provided_names) and provided_names.issubset({'documentNumber', 'buffer'}):
+        if {'buffer', 'documentNumber'}.issubset(provided_names) and provided_names.issubset({'buffer', 'documentNumber'}):
             candidates.append((2, -2, 'GetFVByBufferDocumentNumber'))
         if not candidates:
             raise TypeError("GetFV(): no matching overload for provided arguments")
@@ -372,7 +372,7 @@ def GetStatus(api: object, documentId: object = _UNSET, documentNumber: object =
             raise TypeError("GetStatus(): ambiguous overload for provided arguments")
         exact_match = 'GetStatus'
         exact_match_name = 'GetStatus'
-    if provided_names == {'documentNumber', 'buffer'}:
+    if provided_names == {'buffer', 'documentNumber'}:
         if exact_match_name is not None:
             raise TypeError("GetStatus(): ambiguous overload for provided arguments")
         exact_match = 'GetStatusByBufferDocumentNumber'
@@ -383,7 +383,7 @@ def GetStatus(api: object, documentId: object = _UNSET, documentNumber: object =
         candidates: list[tuple[int, int, str]] = []
         if {'documentId'}.issubset(provided_names) and provided_names.issubset({'documentId'}):
             candidates.append((1, -1, 'GetStatus'))
-        if {'documentNumber', 'buffer'}.issubset(provided_names) and provided_names.issubset({'documentNumber', 'buffer'}):
+        if {'buffer', 'documentNumber'}.issubset(provided_names) and provided_names.issubset({'buffer', 'documentNumber'}):
             candidates.append((2, -2, 'GetStatusByBufferDocumentNumber'))
         if not candidates:
             raise TypeError("GetStatus(): no matching overload for provided arguments")
@@ -513,17 +513,17 @@ def GetPDF(api: object, documentId: object = _UNSET, printNote: object = _UNSET,
             raise TypeError("GetPDF(): ambiguous overload for provided arguments")
         exact_match = 'GetPDF'
         exact_match_name = 'GetPDF'
-    if provided_names == {'documentNumber', 'buffer', 'printNote'}:
+    if provided_names == {'buffer', 'documentNumber', 'printNote'}:
         if exact_match_name is not None:
             raise TypeError("GetPDF(): ambiguous overload for provided arguments")
         exact_match = 'GetPDFByBufferDocumentNumberPrintNote'
         exact_match_name = 'GetPDFByBufferDocumentNumberPrintNote'
-    if provided_names == {'settings', 'documentId'}:
+    if provided_names == {'documentId', 'settings'}:
         if exact_match_name is not None:
             raise TypeError("GetPDF(): ambiguous overload for provided arguments")
         exact_match = 'GetPDFByDocumentIdSettings'
         exact_match_name = 'GetPDFByDocumentIdSettings'
-    if provided_names == {'documentNumber', 'settings', 'buffer'}:
+    if provided_names == {'buffer', 'documentNumber', 'settings'}:
         if exact_match_name is not None:
             raise TypeError("GetPDF(): ambiguous overload for provided arguments")
         exact_match = 'GetPDFByBufferDocumentNumberSettings'
@@ -534,11 +534,11 @@ def GetPDF(api: object, documentId: object = _UNSET, printNote: object = _UNSET,
         candidates: list[tuple[int, int, str]] = []
         if {'documentId', 'printNote'}.issubset(provided_names) and provided_names.issubset({'documentId', 'printNote'}):
             candidates.append((2, -2, 'GetPDF'))
-        if {'documentNumber', 'buffer', 'printNote'}.issubset(provided_names) and provided_names.issubset({'documentNumber', 'buffer', 'printNote'}):
+        if {'buffer', 'documentNumber', 'printNote'}.issubset(provided_names) and provided_names.issubset({'buffer', 'documentNumber', 'printNote'}):
             candidates.append((3, -3, 'GetPDFByBufferDocumentNumberPrintNote'))
-        if {'settings', 'documentId'}.issubset(provided_names) and provided_names.issubset({'settings', 'documentId'}):
+        if {'documentId', 'settings'}.issubset(provided_names) and provided_names.issubset({'documentId', 'settings'}):
             candidates.append((2, -2, 'GetPDFByDocumentIdSettings'))
-        if {'documentNumber', 'settings', 'buffer'}.issubset(provided_names) and provided_names.issubset({'documentNumber', 'settings', 'buffer'}):
+        if {'buffer', 'documentNumber', 'settings'}.issubset(provided_names) and provided_names.issubset({'buffer', 'documentNumber', 'settings'}):
             candidates.append((3, -3, 'GetPDFByBufferDocumentNumberSettings'))
         if not candidates:
             raise TypeError("GetPDF(): no matching overload for provided arguments")

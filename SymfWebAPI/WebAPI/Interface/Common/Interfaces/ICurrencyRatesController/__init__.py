@@ -46,7 +46,7 @@ def Get(api: object, currencyId: object = _UNSET, date: object = _UNSET, *, vali
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'Get'
         exact_match_name = 'Get'
-    if provided_names == {'date', 'currencyId'}:
+    if provided_names == {'currencyId', 'date'}:
         if exact_match_name is not None:
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'GetByCurrencyIdDate'
@@ -57,7 +57,7 @@ def Get(api: object, currencyId: object = _UNSET, date: object = _UNSET, *, vali
         candidates: list[tuple[int, int, str]] = []
         if set().issubset(provided_names) and provided_names.issubset(set()):
             candidates.append((0, 0, 'Get'))
-        if {'currencyId'}.issubset(provided_names) and provided_names.issubset({'date', 'currencyId'}):
+        if {'currencyId'}.issubset(provided_names) and provided_names.issubset({'currencyId', 'date'}):
             candidates.append((1, -2, 'GetByCurrencyIdDate'))
         if not candidates:
             raise TypeError("Get(): no matching overload for provided arguments")

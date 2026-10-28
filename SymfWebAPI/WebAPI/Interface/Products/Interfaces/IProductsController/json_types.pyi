@@ -126,8 +126,8 @@ class ProductListElementJSON(TypedDict):
     Code: str
     Name: str
     Active: bool
-    Unit: str
-    DefaultUnit: str
+    Unit: str | None
+    DefaultUnit: str | None
     VatRate: str | None
     Type: Any | None
     Barcode: str
@@ -147,8 +147,8 @@ class ProductListElementWithDimensionsJSON(TypedDict):
     Code: str
     Name: str
     Active: bool
-    Unit: str
-    DefaultUnit: str
+    Unit: str | None
+    DefaultUnit: str | None
     VatRate: str | None
     Type: Any | None
     Barcode: str
@@ -162,8 +162,8 @@ class ProductListElementWithSalePricesJSON(TypedDict):
     Code: str
     Name: str
     Active: bool
-    Unit: str
-    DefaultUnit: str
+    Unit: str | None
+    DefaultUnit: str | None
     VatRate: str | None
     Type: Any | None
     Barcode: str

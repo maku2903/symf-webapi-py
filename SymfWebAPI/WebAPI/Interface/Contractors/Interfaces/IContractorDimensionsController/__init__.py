@@ -110,7 +110,7 @@ def Update(api: object, contractorId: object = _UNSET, contractorDimension: obje
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'contractorId', 'contractorDimension'}:
+    if provided_names == {'contractorDimension', 'contractorId'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'Update'
@@ -120,7 +120,7 @@ def Update(api: object, contractorId: object = _UNSET, contractorDimension: obje
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByContractorCodeContractorDimension'
         exact_match_name = 'UpdateByContractorCodeContractorDimension'
-    if provided_names == {'contractorId', 'contractorDimensions'}:
+    if provided_names == {'contractorDimensions', 'contractorId'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByContractorDimensionsContractorId'
@@ -134,11 +134,11 @@ def Update(api: object, contractorId: object = _UNSET, contractorDimension: obje
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'contractorId', 'contractorDimension'}.issubset(provided_names) and provided_names.issubset({'contractorId', 'contractorDimension'}):
+        if {'contractorDimension', 'contractorId'}.issubset(provided_names) and provided_names.issubset({'contractorDimension', 'contractorId'}):
             candidates.append((2, -2, 'Update'))
         if {'contractorCode', 'contractorDimension'}.issubset(provided_names) and provided_names.issubset({'contractorCode', 'contractorDimension'}):
             candidates.append((2, -2, 'UpdateByContractorCodeContractorDimension'))
-        if {'contractorId', 'contractorDimensions'}.issubset(provided_names) and provided_names.issubset({'contractorId', 'contractorDimensions'}):
+        if {'contractorDimensions', 'contractorId'}.issubset(provided_names) and provided_names.issubset({'contractorDimensions', 'contractorId'}):
             candidates.append((2, -2, 'UpdateByContractorDimensionsContractorId'))
         if {'contractorCode', 'contractorDimensions'}.issubset(provided_names) and provided_names.issubset({'contractorCode', 'contractorDimensions'}):
             candidates.append((2, -2, 'UpdateByContractorCodeContractorDimensions'))

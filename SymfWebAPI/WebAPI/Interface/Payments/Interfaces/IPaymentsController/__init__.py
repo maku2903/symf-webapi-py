@@ -251,7 +251,7 @@ def GetListByPaymentRegistry(api: object, paymentRegistryId: object = _UNSET, da
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'paymentRegistryId', 'dateFrom', 'dateTo'}:
+    if provided_names == {'dateFrom', 'dateTo', 'paymentRegistryId'}:
         if exact_match_name is not None:
             raise TypeError("GetListByPaymentRegistry(): ambiguous overload for provided arguments")
         exact_match = 'GetListByPaymentRegistry'
@@ -265,7 +265,7 @@ def GetListByPaymentRegistry(api: object, paymentRegistryId: object = _UNSET, da
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'paymentRegistryId'}.issubset(provided_names) and provided_names.issubset({'paymentRegistryId', 'dateFrom', 'dateTo'}):
+        if {'paymentRegistryId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'dateTo', 'paymentRegistryId'}):
             candidates.append((1, -3, 'GetListByPaymentRegistry'))
         if {'paymentRegistryCode'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'dateTo', 'paymentRegistryCode'}):
             candidates.append((1, -3, 'GetListByPaymentRegistryByDateFromDateToPaymentRegistryCode'))
@@ -303,7 +303,7 @@ def GetListByReceivingPaymentRegistry(api: object, receivingPaymentRegistryId: o
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'dateFrom', 'receivingPaymentRegistryId', 'dateTo'}:
+    if provided_names == {'dateFrom', 'dateTo', 'receivingPaymentRegistryId'}:
         if exact_match_name is not None:
             raise TypeError("GetListByReceivingPaymentRegistry(): ambiguous overload for provided arguments")
         exact_match = 'GetListByReceivingPaymentRegistry'
@@ -317,7 +317,7 @@ def GetListByReceivingPaymentRegistry(api: object, receivingPaymentRegistryId: o
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'receivingPaymentRegistryId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'receivingPaymentRegistryId', 'dateTo'}):
+        if {'receivingPaymentRegistryId'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'dateTo', 'receivingPaymentRegistryId'}):
             candidates.append((1, -3, 'GetListByReceivingPaymentRegistry'))
         if {'receivingPaymentRegistryCode'}.issubset(provided_names) and provided_names.issubset({'dateFrom', 'dateTo', 'receivingPaymentRegistryCode'}):
             candidates.append((1, -3, 'GetListByReceivingPaymentRegistryByDateFromDateToReceivingPaymentRegistryCode'))
@@ -360,7 +360,7 @@ def GetPDF(api: object, documentId: object = _UNSET, printNote: object = _UNSET,
             raise TypeError("GetPDF(): ambiguous overload for provided arguments")
         exact_match = 'GetPDF'
         exact_match_name = 'GetPDF'
-    if provided_names == {'documentNumber', 'buffer', 'printNote'}:
+    if provided_names == {'buffer', 'documentNumber', 'printNote'}:
         if exact_match_name is not None:
             raise TypeError("GetPDF(): ambiguous overload for provided arguments")
         exact_match = 'GetPDFByBufferDocumentNumberPrintNote'
@@ -371,7 +371,7 @@ def GetPDF(api: object, documentId: object = _UNSET, printNote: object = _UNSET,
         candidates: list[tuple[int, int, str]] = []
         if {'documentId', 'printNote'}.issubset(provided_names) and provided_names.issubset({'documentId', 'printNote'}):
             candidates.append((2, -2, 'GetPDF'))
-        if {'documentNumber', 'buffer', 'printNote'}.issubset(provided_names) and provided_names.issubset({'documentNumber', 'buffer', 'printNote'}):
+        if {'buffer', 'documentNumber', 'printNote'}.issubset(provided_names) and provided_names.issubset({'buffer', 'documentNumber', 'printNote'}):
             candidates.append((3, -3, 'GetPDFByBufferDocumentNumberPrintNote'))
         if not candidates:
             raise TypeError("GetPDF(): no matching overload for provided arguments")

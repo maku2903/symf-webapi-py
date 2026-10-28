@@ -84,12 +84,12 @@ def UpdateById(api: object, contractorId: object = _UNSET, contractorDimension: 
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'contractorId', 'contractorDimension'}:
+    if provided_names == {'contractorDimension', 'contractorId'}:
         if exact_match_name is not None:
             raise TypeError("UpdateById(): ambiguous overload for provided arguments")
         exact_match = 'UpdateById'
         exact_match_name = 'UpdateById'
-    if provided_names == {'contractorId', 'contractorDimensions'}:
+    if provided_names == {'contractorDimensions', 'contractorId'}:
         if exact_match_name is not None:
             raise TypeError("UpdateById(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByIdByContractorDimensionsContractorId'
@@ -98,9 +98,9 @@ def UpdateById(api: object, contractorId: object = _UNSET, contractorDimension: 
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'contractorId', 'contractorDimension'}.issubset(provided_names) and provided_names.issubset({'contractorId', 'contractorDimension'}):
+        if {'contractorDimension', 'contractorId'}.issubset(provided_names) and provided_names.issubset({'contractorDimension', 'contractorId'}):
             candidates.append((2, -2, 'UpdateById'))
-        if {'contractorId', 'contractorDimensions'}.issubset(provided_names) and provided_names.issubset({'contractorId', 'contractorDimensions'}):
+        if {'contractorDimensions', 'contractorId'}.issubset(provided_names) and provided_names.issubset({'contractorDimensions', 'contractorId'}):
             candidates.append((2, -2, 'UpdateByIdByContractorDimensionsContractorId'))
         if not candidates:
             raise TypeError("UpdateById(): no matching overload for provided arguments")

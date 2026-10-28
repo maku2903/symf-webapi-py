@@ -146,8 +146,8 @@ class WarehouseDocumentPositionJSON(TypedDict):
     EnteredUnitOfMeasurement: str
     PriceValue: float | int
     NetValue: float | int
-    Reservations: list[WarehouseDocumentPositionReservationJSON]
-    Deliveries: list[WarehouseDocumentPositionDeliveryJSON]
+    Reservations: list[WarehouseDocumentPositionReservationJSON] | None
+    Deliveries: list[WarehouseDocumentPositionDeliveryJSON] | None
 
 class WarehouseDocumentPositionDeliveryJSON(TypedDict):
     Id: int

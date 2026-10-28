@@ -63,7 +63,7 @@ def Update(api: object, deliveryId: object = _UNSET, deliveryDimension: object =
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'Update'
         exact_match_name = 'Update'
-    if provided_names == {'deliveryId', 'deliveryDimensions'}:
+    if provided_names == {'deliveryDimensions', 'deliveryId'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByDeliveryDimensionsDeliveryId'
@@ -74,7 +74,7 @@ def Update(api: object, deliveryId: object = _UNSET, deliveryDimension: object =
         candidates: list[tuple[int, int, str]] = []
         if {'deliveryDimension', 'deliveryId'}.issubset(provided_names) and provided_names.issubset({'deliveryDimension', 'deliveryId'}):
             candidates.append((2, -2, 'Update'))
-        if {'deliveryId', 'deliveryDimensions'}.issubset(provided_names) and provided_names.issubset({'deliveryId', 'deliveryDimensions'}):
+        if {'deliveryDimensions', 'deliveryId'}.issubset(provided_names) and provided_names.issubset({'deliveryDimensions', 'deliveryId'}):
             candidates.append((2, -2, 'UpdateByDeliveryDimensionsDeliveryId'))
         if not candidates:
             raise TypeError("Update(): no matching overload for provided arguments")

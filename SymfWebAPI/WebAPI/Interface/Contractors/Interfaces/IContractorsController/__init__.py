@@ -271,7 +271,7 @@ def SyncFK(api: object, contractorId: object = _UNSET, isNew: object = _UNSET, c
             raise TypeError("SyncFK(): ambiguous overload for provided arguments")
         exact_match = 'SyncFK'
         exact_match_name = 'SyncFK'
-    if provided_names == {'isNew', 'contractorCode'}:
+    if provided_names == {'contractorCode', 'isNew'}:
         if exact_match_name is not None:
             raise TypeError("SyncFK(): ambiguous overload for provided arguments")
         exact_match = 'SyncFKByContractorCodeIsNew'
@@ -282,7 +282,7 @@ def SyncFK(api: object, contractorId: object = _UNSET, isNew: object = _UNSET, c
         candidates: list[tuple[int, int, str]] = []
         if {'contractorId', 'isNew'}.issubset(provided_names) and provided_names.issubset({'contractorId', 'isNew'}):
             candidates.append((2, -2, 'SyncFK'))
-        if {'isNew', 'contractorCode'}.issubset(provided_names) and provided_names.issubset({'isNew', 'contractorCode'}):
+        if {'contractorCode', 'isNew'}.issubset(provided_names) and provided_names.issubset({'contractorCode', 'isNew'}):
             candidates.append((2, -2, 'SyncFKByContractorCodeIsNew'))
         if not candidates:
             raise TypeError("SyncFK(): no matching overload for provided arguments")

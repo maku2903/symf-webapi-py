@@ -65,13 +65,13 @@ class ContractorListElementWithDimensionsJSON(TypedDict):
     Name: str
     Type: Any | None
     NIP: str | None
-    Pesel: str
+    Pesel: str | None
     Active: bool
     PriceType: Any | None
     PriceKind: Any | None
     PaymentFormOid: int
     PaymentRegistryOid: int
-    Place: str
+    Place: str | None
     PostCode: str | None
 
 class ContractorJSON(TypedDict):
@@ -132,13 +132,13 @@ class ContractorListElementJSON(TypedDict):
     Name: str
     Type: Any | None
     NIP: str | None
-    Pesel: str
+    Pesel: str | None
     Active: bool
     PriceType: Any | None
     PriceKind: Any | None
     PaymentFormOid: int
     PaymentRegistryOid: int
-    Place: str
+    Place: str | None
     PostCode: str | None
 
 class IncrementalSyncListElementJSON(TypedDict):

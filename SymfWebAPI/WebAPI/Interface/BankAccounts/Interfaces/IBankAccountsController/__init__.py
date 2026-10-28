@@ -108,12 +108,12 @@ def Insert(api: object, contractorId: object = _UNSET, bankAccount: object = _UN
     provided_names.discard(None)
     exact_match = None
     exact_match_name = None
-    if provided_names == {'contractorId', 'bankAccount'}:
+    if provided_names == {'bankAccount', 'contractorId'}:
         if exact_match_name is not None:
             raise TypeError("Insert(): ambiguous overload for provided arguments")
         exact_match = 'Insert'
         exact_match_name = 'Insert'
-    if provided_names == {'contractorCode', 'bankAccount'}:
+    if provided_names == {'bankAccount', 'contractorCode'}:
         if exact_match_name is not None:
             raise TypeError("Insert(): ambiguous overload for provided arguments")
         exact_match = 'InsertByBankAccountContractorCode'
@@ -122,9 +122,9 @@ def Insert(api: object, contractorId: object = _UNSET, bankAccount: object = _UN
         selected = exact_match_name
     else:
         candidates: list[tuple[int, int, str]] = []
-        if {'contractorId', 'bankAccount'}.issubset(provided_names) and provided_names.issubset({'contractorId', 'bankAccount'}):
+        if {'bankAccount', 'contractorId'}.issubset(provided_names) and provided_names.issubset({'bankAccount', 'contractorId'}):
             candidates.append((2, -2, 'Insert'))
-        if {'contractorCode', 'bankAccount'}.issubset(provided_names) and provided_names.issubset({'contractorCode', 'bankAccount'}):
+        if {'bankAccount', 'contractorCode'}.issubset(provided_names) and provided_names.issubset({'bankAccount', 'contractorCode'}):
             candidates.append((2, -2, 'InsertByBankAccountContractorCode'))
         if not candidates:
             raise TypeError("Insert(): no matching overload for provided arguments")

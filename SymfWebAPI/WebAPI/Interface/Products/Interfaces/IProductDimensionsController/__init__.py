@@ -115,17 +115,17 @@ def Update(api: object, productId: object = _UNSET, productDimension: object = _
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'Update'
         exact_match_name = 'Update'
-    if provided_names == {'productDimension', 'productCode'}:
+    if provided_names == {'productCode', 'productDimension'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByProductCodeProductDimension'
         exact_match_name = 'UpdateByProductCodeProductDimension'
-    if provided_names == {'productId', 'productDimensions'}:
+    if provided_names == {'productDimensions', 'productId'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByProductDimensionsProductId'
         exact_match_name = 'UpdateByProductDimensionsProductId'
-    if provided_names == {'productDimensions', 'productCode'}:
+    if provided_names == {'productCode', 'productDimensions'}:
         if exact_match_name is not None:
             raise TypeError("Update(): ambiguous overload for provided arguments")
         exact_match = 'UpdateByProductCodeProductDimensions'
@@ -136,11 +136,11 @@ def Update(api: object, productId: object = _UNSET, productDimension: object = _
         candidates: list[tuple[int, int, str]] = []
         if {'productDimension', 'productId'}.issubset(provided_names) and provided_names.issubset({'productDimension', 'productId'}):
             candidates.append((2, -2, 'Update'))
-        if {'productDimension', 'productCode'}.issubset(provided_names) and provided_names.issubset({'productDimension', 'productCode'}):
+        if {'productCode', 'productDimension'}.issubset(provided_names) and provided_names.issubset({'productCode', 'productDimension'}):
             candidates.append((2, -2, 'UpdateByProductCodeProductDimension'))
-        if {'productId', 'productDimensions'}.issubset(provided_names) and provided_names.issubset({'productId', 'productDimensions'}):
+        if {'productDimensions', 'productId'}.issubset(provided_names) and provided_names.issubset({'productDimensions', 'productId'}):
             candidates.append((2, -2, 'UpdateByProductDimensionsProductId'))
-        if {'productDimensions', 'productCode'}.issubset(provided_names) and provided_names.issubset({'productDimensions', 'productCode'}):
+        if {'productCode', 'productDimensions'}.issubset(provided_names) and provided_names.issubset({'productCode', 'productDimensions'}):
             candidates.append((2, -2, 'UpdateByProductCodeProductDimensions'))
         if not candidates:
             raise TypeError("Update(): no matching overload for provided arguments")

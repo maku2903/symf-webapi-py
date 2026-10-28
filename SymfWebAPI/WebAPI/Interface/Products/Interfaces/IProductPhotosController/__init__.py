@@ -55,7 +55,7 @@ def Get(api: object, productId: object = _UNSET, productCode: object = _UNSET, p
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'GetByProductCode'
         exact_match_name = 'GetByProductCode'
-    if provided_names == {'quality', 'photoId'}:
+    if provided_names == {'photoId', 'quality'}:
         if exact_match_name is not None:
             raise TypeError("Get(): ambiguous overload for provided arguments")
         exact_match = 'GetByPhotoIdQuality'
@@ -68,7 +68,7 @@ def Get(api: object, productId: object = _UNSET, productCode: object = _UNSET, p
             candidates.append((1, -1, 'Get'))
         if {'productCode'}.issubset(provided_names) and provided_names.issubset({'productCode'}):
             candidates.append((1, -1, 'GetByProductCode'))
-        if {'quality', 'photoId'}.issubset(provided_names) and provided_names.issubset({'quality', 'photoId'}):
+        if {'photoId', 'quality'}.issubset(provided_names) and provided_names.issubset({'photoId', 'quality'}):
             candidates.append((2, -2, 'GetByPhotoIdQuality'))
         if not candidates:
             raise TypeError("Get(): no matching overload for provided arguments")
