@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "SymfWebAPI"
+version = "2.1.26.20"
+description = "Python client for Symfonia WebAPI (sync + threading)."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Maciej Pondo" }]
+maintainers = [{ name = "Maciej Pondo" }]
+license = "BSD-3-Clause"
+dependencies = [
+    "httpx>=0.27,<0.29",
+    "pydantic>=2.6,<3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<9.0",
+    "ruff>=0.3.0,<0.5",
+    "build>=1.2,<2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/maku2903/symf-webapi-py"
+Repository = "https://github.com/maku2903/symf-webapi-py"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["SymfWebAPI", "SymfWebAPI.*"]
+
+[tool.ruff]
+line-length = 300
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F"]
+[tool.ruff.lint.per-file-ignores]
+"**/__init__.py" = ["F401"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
